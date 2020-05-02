@@ -1,0 +1,41 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div class="card">
+        <section class="avatar" style="widht:100%; background: url(https://source.unsplash.com/collection/2315391/900x900) no-repeat center center / cover;">
+
+        </section>
+        <section class="details">
+            <div>
+                <h3 class="item_details-title">Detalhes</h3>
+            </div>
+            <div class="item">
+                <div>Instrutors</div>
+                <div>Pedro Oliveira</div>
+            </div>
+            <div class="item">
+                <div>Idade</div>
+                <div>19</div>
+            </div>
+            <div class="item">
+                <div>Sexo</div>
+                <div>Masculino</div>
+            </div>
+            <div class="item">
+                <div>Serviços</div>
+                <div>
+                    <span>Musculação</span>
+                    <span>Crossfit</span>
+                </div>
+            </div>
+            <div class="item">
+                <div>Desde</div>
+                <div>6/01/2020</div>
+            </div>
+        </section>
+    </div>
+    <div class="links">
+        <a href="instructors/create">Cadastrar-se</a>
+    </div>
+{% endblock content %}

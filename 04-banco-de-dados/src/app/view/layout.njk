@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block head %}
+            <title>Gym - Instructors</title>
+        {% endblock head %}
+        {# CLASSE PAI #}
+        <link rel="stylesheet" href="/reset.css">
+        <link rel="stylesheet" href="/style.css">
+        {# FONT AWESOME #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    </head>
+    <body>
+        {# HEADER #}
+        <header>
+            <div class="links">
+                <a href="/instructors">
+                    <i class="fas fa-jedi"></i>
+                    Instructors
+                </a>
+                <a href="/members">
+                    <i class="fab fa-old-republic"></i>
+                    Members
+                </a>
+            </div>
+        </header>
+        {# /HEADER #}
+
+        {% block content %}{% endblock content %}
+
+        {# footer #}
+        <footer class="main_footer">
+            <p>&copy; 2019 - 2020 Todos os Direitos Reservados.</p>
+        </footer>
+        {# /footer #}
+
+        {# SCRIPTS #}
+        <script src="/scripts.js"></script>
+    </body>
+</html>

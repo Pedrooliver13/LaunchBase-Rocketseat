@@ -1,0 +1,43 @@
+{# AQUI INFOS DO FORMULÁRIO DE CADASTRO #}
+    <div class="item">
+        <div>Avatar Url</div>
+        <div><input type="url" name="avatar_url" placeholder="https://" value="{{ instructors.avatar_url }}"></div>
+    </div>
+    <div class="item">
+        <div>Nome</div>
+        <div><input type="name" name="name" placeholder="ex:Pedro Oliveira" value="{{ instructors.name }}"></div>
+    </div>
+    <div class="item">
+        <div>Data de Nascimento</div>
+        <div><input type="date" name="birth" value="{{ instructors.birth }}"></div>
+    </div>
+    <div class="item">
+        <div>Sexo</div>
+        <div>
+            <input 
+            type="radio" 
+            name="sex" 
+            id="masc" 
+            value="M"
+            {% if instructors.sex == 'M' %}
+                checked
+            {% endif %} >
+            <label for="masc">Masculino</label>
+
+            <input 
+            type="radio" 
+            name="sex" 
+            value="F" 
+            id="fem" 
+            {% if instructors.sex == 'F' %}
+                checked
+            {% endif %}>
+            <label for="fem">Feminino</label>
+        </div>
+    </div>
+    <div class="item">
+        <div>Serviços</div>
+        <div><input type="text" name="services" placeholder="Musculação , Crossfit" value="{{ instructors.services }}"></div>
+    </div>
+
+    <button type="submit">Salvar</button>

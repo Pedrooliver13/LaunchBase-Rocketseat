@@ -1,0 +1,52 @@
+{# AQUI INFOS DO FORMULÁRIO DE CADASTRO #}
+    <div class="item">
+        <div>Avatar Url</div>
+        <div><input type="url" name="avatar_url" placeholder="https://" value="{{ instructors.avatar_url }}"></div>
+    </div>
+    <div class="item">
+        <div>Nome</div>
+        <div><input type="name" name="name" placeholder="ex:Pedro Oliveira" value="{{ instructors.name }}"></div>
+    </div>
+    <div class="item">
+        <div>Data de Nascimento</div>
+        <div><input type="date" name="birth" value="{{ instructors.birth }}"></div>
+    </div>
+    <div class="item">
+        <div>Sexo</div>
+        <div>
+            <span>
+                <input 
+                type="radio" 
+                name="sex" 
+                id="masc" 
+                value="M"
+                checked
+                {% if instructors.sex == 'M' %}
+                    checked
+                {% endif %} >
+                <label for="masc">Masculino</label>
+            </span>
+
+           <span>
+                <input 
+                type="radio" 
+                name="sex" 
+                value="F" 
+                id="fem" 
+                {% if instructors.sex == 'F' %}
+                    checked
+                {% endif %}>
+                <label for="fem">Feminino</label>
+           </span>
+        </div>
+    </div>
+    <div class="item">
+        <div>Serviços</div>
+        <div><input type="text" name="services" placeholder="Separe os serviços prestados por virgula" value="{{ instructors.services }}"></div>
+    </div>
+
+    <button type="submit">
+        <img src="https://www.flaticon.com/premium-icon/icons/svg/280/280943.svg" alt="" style="max-width:5%;margin-right:10px; color:white;">
+
+        Salvar
+        </button>

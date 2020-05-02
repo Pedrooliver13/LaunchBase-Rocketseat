@@ -1,0 +1,69 @@
+{# AQUI INFOS DO FORMULÁRIO DE CADASTRO #}
+<div class="item">
+    <div>Avatar Url</div>
+    <div><input type="url" name="avatar_url" placeholder="https://" value="{{ members.avatar_url }}"></div>
+</div>
+<div class="item">
+    <div>Nome</div>
+    <div><input type="text" name="name" placeholder="ex:Pedro Oliveira" value="{{ members.name }}"></div>
+</div>
+<div class="item">
+    <div>E-mail</div>
+    <div><input type="email" name="email" placeholder="E-mail" value="{{ members.email }}"></div>
+</div>
+<div class="item">
+    <div>Data de Nascimento</div>
+    <div><input type="date" name="birth" value="{{ members.birth }}"></div>
+</div>
+<div class="item">
+    <div>Sexo</div>
+    <div>
+        <span>
+            <input type="radio" name="sex" id="masc" value="M" checked="checked" {% if members.sex == 'M' %} {% endif %}>
+            <label for="masc">Masculino</label>
+        </span>
+
+        <span>
+            <input type="radio" name="sex" value="F" id="fem" {% if members.sex == 'F' %} checked="checked" {% endif %}>
+            <label for="fem">Feminino</label>
+        </span>
+    </div>
+</div>
+<div class="item">
+    <div>Tipo Sanguíneo</div>
+    <div>
+        <select name="blood">
+            <option value="A+" {% if members.blood == "A+" %} select="select" {% endif %}>A+</option>
+            <option value="A-" {% if members.blood == "A-" %} select="select" {% endif %}>A-</option>
+            <option value="B+" {% if members.blood == "B+" %} select="select" {% endif %}>B+</option>
+            <option value="B-" {% if members.blood == "B-" %} select="select" {% endif %}>B-</option>
+            <option value="AB+" {% if members.blood == "AB+" %} select="select" {% endif %}>AB+</option>
+            <option value="AB-" {% if members.blood == "AB-" %} select="select" {% endif %}>AB-</option>
+            <option value="O+" {% if members.blood == "O+" %} select="select" {% endif %}>O+</option>
+            <option value="O-" {% if members.blood == "O-" %} select="select" {% endif %}>O-</option>
+        </select>
+    </div>
+</div>
+<div class="item">
+    <div>Peso(kg)</div>
+    <div><input type="number" name="weight" value="{{ members.weight }}"></div>
+</div>
+<div class="item">
+    <div>Altura(cm)</div>
+    <div><input type="number" name="height" value="{{ members.height }}"></div>
+</div>
+<div class="item">
+    <div>Instuctors</div>
+    <div>
+        <select name="instructor">
+            {% for instructor in instructors %}
+                <option value="{{ instructor.id }}" {% if members.instructors_id == instructors.id %} select="select" {% endif %}>{{ instructor.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<button type="submit">
+    <img src="https://www.flaticon.com/premium-icon/icons/svg/280/280943.svg" alt="" style="max-width:5%;margin-right:10px; color:white;">
+
+    Salvar
+</button>

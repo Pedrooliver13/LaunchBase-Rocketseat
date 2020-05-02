@@ -1,0 +1,65 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="card table-container">
+        <div class="header">
+            <a class="button" href="/instructors/create">
+                <i class="fas fa-jedi"></i>
+                Juntar-se a resistência
+            </a>
+            <form action="/members" method="GET">
+                <input type="text" name="filter" placeholder="Filtrar por nome" value="{{ filter }}">
+                <button class="button" type="submit">Filtrar</button>
+            </form>
+        </div>
+        <table width="100%">
+
+            <thead class="item_details-title">
+                {# Cabeçalho da tabela #}
+                <th>Membro</th>
+                <th>E-mail</th>
+                <th>Peso(kg)</th>
+                <th>Altura(cm)</th>
+                <th>Ação</th>
+
+            </thead>
+            <tbody>
+                {# enviando mais de um instrutor #}
+                {% for member in members %}
+                    <tr>
+                        <td>
+                            <span style="background-image: url( {{ member.avatar_url }} );"></span>
+                            {# imagem #}
+                            {{ member.name }}
+                            {# NOME #}
+                        </td>
+
+                        <td class="item">
+                            <span>{{ member.email }}</span>
+                        </td>
+
+                        <td class="item">
+                            <span>{{ member.weight }}</span>
+                        </td>
+
+                        <td class="item">
+                            <span>{{ member.height }}</span>
+                        </td>
+
+                        <td>
+                            <a class="button" href="/members/{{ member.id }}">Ver</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div class="pagination" 
+        data-page={{pagination.page}} 
+        data-total={{pagination.total}}
+        ></div>
+
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% import "part/section-products.njk" as section %}
+
+{% block content %}
+  <section class="search-products container">
+
+    <aside>
+      <div class="header">
+        <h2>{{ search.term }}</h2>
+        <p>{{ search.total }}
+          encontrados</p>
+      </div>
+
+      <nav class="category">
+        <h4>categorias</h4>
+        <ul>
+
+          {% for category in categorys %}
+            <li>
+              <a href="/products/search?filter={{ search.term }}&category={{ category.id }}">
+                {{ category.name }}
+              </a>
+            </li>
+          {% endfor %}
+          
+        </ul>
+      </nav>
+    </aside>
+
+    {{ section.products("", "container", products) }} {# macro, nunjucks(template enginne) #}
+  </section>
+
+{% endblock content %}

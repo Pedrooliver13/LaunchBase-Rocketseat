@@ -1,0 +1,148 @@
+*{padding: 0 ; margin: 0; border: 0;}
+/* COLORS */
+:root{
+    --color-green: #50fa76;
+    --color-purple: #7159c1;
+}
+
+/* BODY */
+body{
+    background-color: #282a36;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+img{
+    max-width: 100%;
+}
+/* HEADER */
+header{
+    padding: 22px;
+    background: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #333;}
+.links {
+    text-align: center;
+}
+.links a{
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 18px;
+    line-height: 24px;
+}
+.links a:hover{
+    color: var(--color-green);
+    transform: 0.2s;
+}
+/* WRAPPER */
+#wrapper{
+    text-align: center;
+    padding: 22px;
+}
+#wrapper img{
+    border-radius: 50%;
+    border: 5px solid var(--color-green); 
+    margin-bottom: 10px;
+    height: 250px;
+}
+#wrapper h1{
+    font-size: 38px;
+    line-height: 42px;
+    font-weight: 700;
+}
+#wrapper h2{
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: normal;
+    margin-top: 5px; opacity: 0.7;
+}
+#wrapper a{
+    color: var(--color-green);
+}
+#wrapper p{
+    max-width: 500px;
+    font-size: 22px;
+    line-height: 34px;
+    margin:18px auto;
+}
+.sub_menu a{
+    padding: 8px;
+    border-bottom: 1px solid var(--color-green);
+} 
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    max-width: 800px;
+    margin:0 auto;
+}
+.card{
+    background-color: var(--color-purple);
+    margin: 10px;
+}
+.img_container img{
+    cursor: pointer;
+}
+.card_content p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.card_content , .card_info{
+    padding: 20px;
+}
+.card_info{
+    display: grid;
+    cursor: pointer;
+    grid-template-columns: 1fr 1fr;
+}
+.card_price{
+    background-color:var(--color-purple);
+    border-radius: 20px;
+    filter: brightness(90%);
+    padding: 5px 20px;
+    text-align: center;
+}
+.card_price:hover{
+    filter: brightness(110%);
+}
+.modal_overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+}
+.modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: 5vh auto;
+}
+.close-modal{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    cursor: pointer;
+    color: var(--color-purple);
+
+}
+/*=== MODAL.ACTIVE ===*/
+.modal_overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+/* IFRAME */
+iframe{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top:5vh;
+}
+@media (max-width:600px){
+    .cards{
+        grid-template-columns: 1fr;
+    }
+}

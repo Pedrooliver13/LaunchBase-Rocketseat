@@ -8,7 +8,7 @@
 </h3>
 
 
-<ul align="center">
+<ul>
   <li>
     Javascript
   </li>

@@ -8,7 +8,7 @@
 </h3>
 
 
-<ul>
+<ul align="center">
   <li>
     Javascript
   </li>
@@ -23,5 +23,23 @@
   </li>
   <li>
     NPM
+  </li>
+  <li>
+    Express
+  </li>
+   <li>
+    Nodemon
+  </li>
+   <li>
+    JSON
+  </li>
+   <li>
+    PostgreSQL SQL
+  </li>
+   <li>
+    Multer
+  </li>
+   <li>
+    Bcrypt
   </li>
 </ul>

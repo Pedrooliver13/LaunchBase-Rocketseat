@@ -21,8 +21,8 @@
 
 ` CSS
 
-#markdown
-...
+# Markdown
+```
 /* MENU RESPONSIVO */
   header {
     padding: 10px 0px;
@@ -114,7 +114,7 @@
   }
 
 `
-...
+```
 
 
 ` // JAVASCRIPT

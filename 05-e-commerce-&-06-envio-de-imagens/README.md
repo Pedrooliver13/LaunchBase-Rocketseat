@@ -112,7 +112,6 @@ CSS
     color: var(--color-wrapper-bg);
   }
 
-`
 ```
 
 
@@ -130,11 +129,11 @@ menuToggle.addEventListener("click", () => {
 
   show = !show; //e ele vai receber false, na proxima vez o toggle vai saber que tem de tirar a class on,isso tudo ,para evitar de fazer a funcionar sem eu mandar
 });
-`
+```
 <i>a ideia do show , é para ele não estragar quando clicar demais em cima dele</i>
 
 ## Convertendo moeda.
-`
+```
 const mask = {
   apply(input, func) {
     setTimeout(() => {
@@ -153,15 +152,15 @@ const mask = {
 ```
 
 <i>// aqui dividimos por 100 , para quando enviar 1,00 pela segunda vez não fique assim ou algo parecido</i>
-`
+```
   1º = 1,00
   2º = 1001,00
-`
-<p>obs:
-    ```
-    setTimeout(()=> , 1)
-    ```
-</p>
+```
+<p>obs:</p>
+```
+ setTimeout(()=> , 1)
+```
+
 <p>
   Ele é responsável por executar uma função depois de um determinado tempo
 </p>

@@ -9,19 +9,18 @@
 ## BÔNUS
 <h2>Menu Toggle</h2>
 
-` HTML
-
+ HTML
+```
 < div class="menu-toggle">
   < div class="one"></ div>
   < div class="two"></ div>
   < div class="three"></ div>
 < /div>
 
-`
+```
 
-` CSS
+CSS
 
-# Markdown
 ```
 /* MENU RESPONSIVO */
   header {
@@ -117,8 +116,8 @@
 ```
 
 
-` // JAVASCRIPT
-
+// JAVASCRIPT
+```
 let show = true; 
 
 const menuSection = document.querySelector(".menu-section");
@@ -151,19 +150,23 @@ const mask = {
     }).format(value / 100); 
   }
 };
-`
+```
 
 <i>// aqui dividimos por 100 , para quando enviar 1,00 pela segunda vez não fique assim ou algo parecido</i>
 `
   1º = 1,00
   2º = 1001,00
 `
-<p>obs: setTimeout(()=> , 1)</p>
+<p>obs:
+    ```
+    setTimeout(()=> , 1)
+    ```
+</p>
 <p>
   Ele é responsável por executar uma função depois de um determinado tempo
 </p>
 
-`
+```
 const mask = {
   apply(input, func) {
     setTimeout(() => {
@@ -179,12 +182,12 @@ const mask = {
     }).format(value / 100);
   }
 };
-`
+```
 
 
 ## Lógica de envio de Imagem
 
-`
+```
 const PhotosUpload = {
   input: "",
   preview: document.querySelector(".photos-upload__preview"),
@@ -299,20 +302,20 @@ const PhotosUpload = {
     return photoDiv.remove();
   },
 };
-`
+```
 
 
 ## ASYNC/AWAIT
 <p>no começo na da função, se eu quiser usar a função await , tenho que colocar o async no começo assim:</p>
 
-`
+```
   async show(req, res){
     let results = await Product.find(req.body);
     const product = results.rows[0];
 
     return res.render('/product',{ product });
   }
-`
+```
 
 <p>o await espera! ou seja, ele "não vai" deixar o programa terminar sem ele ter feito seu requirimento no banco de dados</p>
 
@@ -322,7 +325,7 @@ const PhotosUpload = {
 
 # Como configurar o multer ?
 
-`
+```
 const multer = require('multer');
 
 const storage = multer.DiskStorage({
@@ -344,26 +347,26 @@ module.exports = multer({
   storage,
   fileFilter
 })
-`
+```
   <i>*mimetype = fala o tipo do arquivo(jpg, png etc);</i>
 
 ## PARA TUDO ISSO FUNCIONAR ADICIONE ISSO AO FORMS
-` 
-< form action="/admin?_method=PUT" method="POST" ectype="multipart/form-data">
-`
+```
+<form action="/admin?_method=PUT" method="POST" ectype="multipart/form-data">
+```
 <p>
   o ectype, vai aceitar o envio das imagens 
 </p>
 
 
 ## Adicionando o multer na routes
-`
+```
 const multer = require(../busque-a-pasta/que-configuramos);
 const routes = express.Router();
 
 routes.post('/', multer.array('photos', 6), CONTROLLERS);
 routes.put('/', multer.array('photos', 6), CONTROLLERS);
-`
+```
 
 <p>
 multer.array(tag que está enviando as fotos, 6) *o segundo diz,quantas imagens você vai estar enviando;
@@ -373,7 +376,7 @@ multer.array(tag que está enviando as fotos, 6) *o segundo diz,quantas imagens 
 # COMO SALVAR VARIAS IMAGES
 <p>Usaremos o map para isso</p>
 <i>*o map retorna uma promise;</i>
-`
+```
   async create(req, res){
     let results = await req.files.map(file => File.create(req.body));
     let files = await Promise.all(results);
@@ -384,12 +387,12 @@ multer.array(tag que está enviando as fotos, 6) *o segundo diz,quantas imagens 
     }))
     await Promise.all(files);
   }
-`
+```
 
 # Bônus
 como usar results de uma Promise.all() ? 
 
-`
+```
   let results = req.files.map(file => File.create(file));
   let files = await Promise.all(results); // recebeu todos os results
 
@@ -400,18 +403,18 @@ como usar results de uma Promise.all() ?
 
   // aqui vou conseguir usar tranquilamente o results da promise;
   // Lembrando que temos que usar os rows, para ele usar id de todos(pq o map executa para cada um dos items do array) 
-`
+```
 # COMO ATULIZAR NOVAS IMAGENS
 <p>As imagens antigas estão "guardada" em outro lugar não no input[name="photos"], portanto , quando você enviar ele sem alteração, o req.files vai estar vazio  </p>
 
 <p>Por esse motivo fizemos uma condição para quando o req.files for diferente de zero ele executar o código</p>
-`
+```
   if(req.files.length != 0){
     const newFilesPromise = req.files.map(files => File.create(file));
 
     await Promise.all(newFilesPromise);
   }
-`
+```
 
 <i>*Perceba que criamos um novo file no banco de dados.</i>
 
@@ -419,17 +422,14 @@ como usar results de uma Promise.all() ?
 ele vai ser reponsavel por tentar executar alguma coisa,
 
 ## Exemplo:
-<a>
-`
+```
   try{
     'Vai tentar fazer algo'
 
   } catch(err){
     console.log(err); // caso algo de errado o catch vai ser responsável por enviar o erro;
   }
-
-`
-</a>
+```
 
 
 # Como remover as Imagens com apenas um click.(na edição é claro);
@@ -451,7 +451,7 @@ filtraremos o array até o seu ultimo item (length - 1)</p>
 
 
 # Como posicionar o footer sempre no rodapé?
- `
+ ```
  body, html {
    min-height: 100vh;
  }
@@ -465,7 +465,7 @@ filtraremos o array até o seu ultimo item (length - 1)</p>
    margin-top: auto;
  }
 
- `
+ ```
  <p>Assim ele já vai se posicionar no final da página</p>
 
 
@@ -476,11 +476,11 @@ filtraremos o array até o seu ultimo item (length - 1)</p>
 
 <p>Ele vai fazer um loop, ou melhor ele pode fazer uma leitura , ele começa começa da posição 1.
 para começar da posição zero(como o array), temos que fazer assim:</p>
-`
+```
 --
 loop.index0
 --
-`
+```
 
 # ImageGallery.
 aqui vai ser responsável por passar um class "active-image"(que diminui a opacity da imagem).
@@ -492,7 +492,7 @@ e tbm remove essa class.
 4º Quarto: altere a imagem dos highlight
 
 
-`
+```
 const ImageGallery = {
   const ImageGallery = {
   highlight: document.querySelector(".gallery .highlight > img"),
@@ -511,14 +511,14 @@ const ImageGallery = {
   },
 };
 }
-`
+```
 
 ## LightBox
 <p>
   aqui a ideia é mais simples, vamos alterar direto no javascript seus estilos;
 </p>
 
-`
+```
 const LightBox = {
   // Dados de entrada, processamento , e Saída;
   target: document.querySelector(".highlight .lightbox"),
@@ -537,4 +537,4 @@ const LightBox = {
     LightBox.closeButton.style.top = "-80px";
   },
 };
-`
+```
